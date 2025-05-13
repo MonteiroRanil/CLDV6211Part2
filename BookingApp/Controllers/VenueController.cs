@@ -125,8 +125,8 @@ namespace BookingApp.Controllers
 
         private async Task<string> UploadImageToBlobAsync(IFormFile imageFile)
         {
-            var connectionString = "DefaultEndpointsProtocol=https;AccountName=ranilpoe;AccountKey=h2GWugS3WRVSVroN4vo6Ux/yAPr+YVM/BR035tHHY/cjN2dLuUFI1bWR9x/idK13LUiuRkJ/t8L3+AStJnB65w==;EndpointSuffix=core.windows.net";
-        var containerName = "ranil";
+
+           var containerName = "ranil";
 
             var blobServiceClient = new BlobServiceClient(connectionString);
             var ContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
