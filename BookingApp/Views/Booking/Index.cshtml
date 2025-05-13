@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BookingApp.Models.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<form asp-action="Index" method="get">
+    <div class=" ="form-group">
+        <input type="text" name="searchString" class="form-control" placeholder=""/>
+    </div>
+    <button type ="submit" class="btn btn-primary mt-2">Search</button>
+</form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            <th>Event ID</th>
+            <th>Event Name</th>
+            <th>Venue ID</th>
+            <th>Venue Name</th>
+            <th>Booking Date</th>
+            
+            
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                <td>@item.EventID</td>
+                <td>@item.Event.EventName</td>
+                <td>@item.VenueID</td>
+                <td>@item.Venue.VenueName</td>
+                <td>@item.BookingDate.ToShortDateString()</td>
+            </td>
+            <td>
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.BookingID">Edit</a>
+                    <a class="btn btn-sm btn-info text-white" asp-action="Details" asp-route-id="@item.BookingID">Details</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.BookingID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
